@@ -4,6 +4,11 @@ import { jwtDecode } from "jwt-decode"; // Corrected import statement
 
 const Home = () => {
   const [User, setUser] = useState({});
+
+  const handleLogout = () => {
+    setUser({})
+  }
+
   return (
     <>
       {Object.keys(User).length === 0 ? (
@@ -24,7 +29,9 @@ const Home = () => {
           {User.name}
 
           <p>{User.email}</p>
-          <img src={User.picture} alt="" />
+            <img src={User.picture} alt="" />
+            
+            <button onClick={handleLogout}>LOGOUT</button>
         </div>
       )}
     </>
@@ -34,5 +41,4 @@ const Home = () => {
 export default Home;
 
 {
-  /* <script src="https://accounts.google.com/gsi/client" async></script> */
 }
